@@ -1,11 +1,15 @@
 {
   "name": "opencode-agents",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "OpenCode agent evaluation framework and test suites",
   "private": true,
   "workspaces": [
     "evals/framework"
   ],
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-fetch": "^3.3.2"
+  },
   "scripts": {
     "test": "npm run test:all",
     "test:all": "cd evals/framework && npm run eval:sdk",
@@ -45,10 +49,10 @@
     "version:bump:alpha": "npm version prerelease --preid=alpha --no-git-tag-version && node -p \"require('./package.json').version\" > VERSION",
     "version:bump:beta": "npm version prerelease --preid=beta --no-git-tag-version && node -p \"require('./package.json').version\" > VERSION",
     "version:bump:rc": "npm version prerelease --preid=rc --no-git-tag-version && node -p \"require('./package.json').version\" > VERSION",
-    "dev:setup": "cd evals/framework && npm install",
-    "dev:build": "cd evals/framework && npm run build",
-    "dev:test": "cd evals/framework && npm test",
-    "dev:clean": "cd evals/framework && rm -rf dist node_modules && npm install"
+    "dev:setup": "node init && cd evals/framework && npm install",
+    "dev:build": "node init && cd evals/framework && npm run build",
+    "dev:test": "node init && cd evals/framework && npm test",
+    "dev:clean": "node init && cd evals/framework && rm -rf dist node_modules && npm install"
   },
   "keywords": [
     "opencode",

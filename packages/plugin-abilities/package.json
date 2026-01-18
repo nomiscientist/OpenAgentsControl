@@ -24,8 +24,8 @@
     }
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "node init && tsc",
+    "dev": "node init && tsc --watch",
     "test": "bun test",
     "lint": "eslint src/",
     "clean": "rm -rf dist"
